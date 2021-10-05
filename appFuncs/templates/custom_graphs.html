@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Heliostat {% print(helio_id) %} information</h1>
+<div><img>{% print(bat) | safe %}<img/></div>
+<div><img>{% print(m1) | safe %}<img/></div>
+<div><img>{% print(m2) | safe %}<img/></div>
+{% endblock content %}

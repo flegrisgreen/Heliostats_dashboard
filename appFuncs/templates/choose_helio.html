@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Choose Heliostat</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="content-section">
+                <form method="POST" action="" >
+                    <!-- form.hidden_tag() is a security function that forms part of the secret key protection -->
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Heliostats</legend>
+
+                        <!-- The fields specified after "form." are the variable names specified in forms.py -->
+                        <div class="form-group">
+                            {{ form.heliostat.label(class="form-control-label") }}
+
+                            {% if form.heliostat.errors %}
+                                {{ form.heliostat(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.heliostat.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                            <!-- If no error is found, accept the input-->
+                                {{ form.heliostat(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <!-- This is a bootstrap button class -->
+                            {{ form.submit(class="btn btn-outline-info") }}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
